@@ -4,7 +4,7 @@ import { Product } from '../types/product';
 const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'Wireless Headphones',
+    productName: 'Wireless Headphones',
     category: 'Electronics',
     quantity: 45,
     price: 99.99,
@@ -14,7 +14,7 @@ const mockProducts: Product[] = [
   },
   {
     id: '2',
-    name: 'Office Chair',
+    productName: 'Office Chair',
     category: 'Furniture',
     quantity: 8,
     price: 249.99,
@@ -24,7 +24,7 @@ const mockProducts: Product[] = [
   },
   {
     id: '3',
-    name: 'Coffee Beans',
+    productName: 'Coffee Beans',
     category: 'Food & Beverages',
     quantity: 0,
     price: 12.99,
@@ -34,7 +34,7 @@ const mockProducts: Product[] = [
   },
   {
     id: '4',
-    name: 'Laptop Stand',
+    productName: 'Laptop Stand',
     category: 'Office Supplies',
     quantity: 23,
     price: 39.99,
@@ -44,7 +44,7 @@ const mockProducts: Product[] = [
   },
   {
     id: '5',
-    name: 'Bluetooth Speaker',
+    productName: 'Bluetooth Speaker',
     category: 'Electronics',
     quantity: 15,
     price: 79.99,
@@ -134,7 +134,7 @@ export const fetchInventory = async (): Promise<Product[]> => {
   
   try {
     // Try to fetch from API first, fallback to mock data
-    const response = await fetch(`${API_URL}/products`).catch(() => null);
+   const response = await fetch(`${API_URL}/items`)
     
     if (response && response.ok) {
       return await response.json();
@@ -154,7 +154,7 @@ export const addProduct = async (productData: any): Promise<any> => {
   
   try {
     // Try to add via API first
-    const response = await fetch(`${API_URL}/products`, {
+    const response = await fetch(`${API_URL}/items`,  {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { Check, AlertCircle, Upload, X, Plus, FileText } from 'lucide-react';
 import { addProduct } from '../services/api';
 
 interface FormData {
-  name: string;
+  productName: string;
   category: string;
   quantity: string;
   price: string;
@@ -19,7 +19,7 @@ interface Notification {
 const AddProductPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'manual' | 'upload'>('manual');
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    productName: '',
     category: '',
     quantity: '',
     price: '',
@@ -83,7 +83,7 @@ const AddProductPage: React.FC = () => {
     
     try {
       const productData = {
-        name: formData.name,
+        productName: formData. productName,
         category: formData.category,
         quantity: parseInt(formData.quantity) || 0,
         price: parseFloat(formData.price) || 0,
@@ -98,7 +98,7 @@ const AddProductPage: React.FC = () => {
       
       // Reset form
       setFormData({
-        name: '',
+        productName: '',
         category: '',
         quantity: '',
         price: '',
@@ -232,7 +232,7 @@ const AddProductPage: React.FC = () => {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
+                    value={formData. productName}
                     onChange={handleChange}
                     required
                     className="w-full p-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
