@@ -231,7 +231,7 @@ const AddProductPage: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    name="productName"
                     value={formData. productName}
                     onChange={handleChange}
                     required

@@ -3,7 +3,7 @@ import { Product } from '../types/product';
 // Mock data for development - replace with actual API calls when backend is ready
 const mockProducts: Product[] = [
   {
-    id: '1',
+    _id: '1',
     productName: 'Wireless Headphones',
     category: 'Electronics',
     quantity: 45,
@@ -13,7 +13,7 @@ const mockProducts: Product[] = [
     movement: 'Fast Moving'
   },
   {
-    id: '2',
+    _id: '2',
     productName: 'Office Chair',
     category: 'Furniture',
     quantity: 8,
@@ -23,7 +23,7 @@ const mockProducts: Product[] = [
     movement: 'Slow Moving'
   },
   {
-    id: '3',
+    _id: '3',
     productName: 'Coffee Beans',
     category: 'Food & Beverages',
     quantity: 0,
@@ -33,7 +33,7 @@ const mockProducts: Product[] = [
     movement: 'Needs Reorder Soon'
   },
   {
-    id: '4',
+    _id: '4',
     productName: 'Laptop Stand',
     category: 'Office Supplies',
     quantity: 23,
@@ -43,7 +43,7 @@ const mockProducts: Product[] = [
     movement: 'Fast Moving'
   },
   {
-    id: '5',
+    _id: '5',
     productName: 'Bluetooth Speaker',
     category: 'Electronics',
     quantity: 15,
@@ -75,7 +75,6 @@ export const fetchDashboardData = async () => {
     const products = mockProducts;
     const totalProducts = products.length;
     const lowStockProducts = products.filter(p => p.status === 'Low Stock').length;
-    const now = new Date();
     const newProductsThisMonth = 2; // Mock value
     
     const inventoryValue = products.reduce(

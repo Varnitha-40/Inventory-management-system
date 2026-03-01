@@ -4,8 +4,8 @@ import { Search, Filter, AlertTriangle, CheckCircle, Clock } from 'lucide-react'
 import { fetchInventory } from '../services/api';
 
 interface Product {
-  id: string;
-  name: string;
+  _id?: string;
+  productName: string;
   category: string;
   quantity: number;
   price: number;
@@ -43,8 +43,8 @@ const ViewInventoryPage: React.FC = () => {
     
     if (searchTerm) {
       result = result.filter(
-        product => product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                   product.supplier.toLowerCase().includes(searchTerm.toLowerCase())
+        product => product.productName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+           product.supplier.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
     
@@ -189,13 +189,13 @@ const ViewInventoryPage: React.FC = () => {
               {filteredInventory.length > 0 ? (
                 filteredInventory.map((product) => (
                   <motion.tr 
-                    key={product.id}
+                    key={product._id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">{product.name}</div>
+                      <div className="text-sm font-medium text-white">{product.productName}</div>
                       <div className="text-xs text-gray-400">{product.supplier}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
